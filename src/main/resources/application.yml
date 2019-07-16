@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db
+    username: root
+    password: root
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 100
+          fetch_size: 100
+          batch_versioned_data: true
+    hibernate:
+      ddl-auto: create-drop
+
+logging:
+  level:
+    jdbc:
+      sqltiming: info
+      resultsettable: info
+      sqlonly: fatal
+      audit: fatal
+      resultset: fatal
+      connection: fatal
+    org:
+      springframework:
+        orm: debug
+    com.github.cepr0: debug
+
+log4jdbc:
+  dump.sql:
+    addsemicolon: true
+    maxlinelength: 0
+  trim.sql.extrablanklines: false
